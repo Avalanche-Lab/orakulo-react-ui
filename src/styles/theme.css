@@ -1,0 +1,86 @@
+/* Orakulo React UI - Theme Variables */
+/* Importe este arquivo no seu projeto para ter acesso às variáveis de tema */
+
+:root {
+  /* Cores de fundo */
+  --background: #ffffff;
+  --card: #ffffff;
+
+  /* Cores de texto */
+  --foreground: #171717;
+  --card-foreground: #171717;
+  --muted-foreground: #64748b;
+
+  /* Cores primárias */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  /* Cores secundárias */
+  --muted: #f1f5f9;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #64748b;
+
+  /* Cores de destaque */
+  --accent: #f1f5f9;
+  --accent-foreground: #64748b;
+
+  /* Cores de erro */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Cores de borda e input */
+  --border: #e2e8f0;
+  --input: #ffffff;
+  --ring: #3b82f6;
+
+  /* Outros */
+  --radius: 0.5rem;
+  --background-gradient: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #f8fafc,
+    #f1f5f9
+  );
+}
+
+/* Tema escuro */
+.dark {
+  /* Cores de fundo */
+  --background: #0a0a0a;
+  --card: #1a1a1a;
+
+  /* Cores de texto */
+  --foreground: #ededed;
+  --card-foreground: #ededed;
+  --muted-foreground: #94a3b8;
+
+  /* Cores primárias */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  /* Cores secundárias */
+  --muted: #1e293b;
+  --secondary: #1e293b;
+  --secondary-foreground: #94a3b8;
+
+  /* Cores de destaque */
+  --accent: #1e293b;
+  --accent-foreground: #94a3b8;
+
+  /* Cores de erro */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Cores de borda e input */
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #3b82f6;
+
+  /* Outros */
+  --background-gradient: linear-gradient(
+    to bottom right,
+    #111827,
+    #1f2937,
+    #111827
+  );
+}
