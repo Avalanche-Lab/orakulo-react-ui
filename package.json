@@ -1,8 +1,29 @@
 {
   "name": "orakulo-react-ui",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/styles/index.css"
+    },
+    "./theme": {
+      "import": "./dist/styles/theme.css"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,8 +34,6 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
@@ -38,6 +57,8 @@
     "eslint-plugin-storybook": "^9.0.16",
     "globals": "^16.3.0",
     "playwright": "^1.53.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "storybook": "^9.0.16",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
