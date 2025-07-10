@@ -120,3 +120,16 @@ export const WithoutPlaceholder: Story = {
     ],
   },
 };
+
+export const WithDisabledOptions: Story = {
+  args: {
+    label: "Status",
+    placeholder: "Selecione o status",
+    options: [
+      { value: "active", label: "Ativo" },
+      { value: "inactive", label: "Inativo", disabled: true },
+      { value: "pending", label: "Pendente" },
+      { value: "suspended", label: "Suspenso", disabled: true },
+    ],
+  },
+};
