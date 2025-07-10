@@ -3,18 +3,22 @@ import React from "react";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
   children: React.ReactNode;
 }
 
 export function Button({
   variant = "default",
   size = "md",
+  prefixIcon,
+  suffixIcon,
   className = "",
   children,
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center gap-2";
 
   const variantClasses = {
     default:
@@ -36,7 +40,9 @@ export function Button({
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       {...props}
     >
+      {prefixIcon && <span className="flex-shrink-0">{prefixIcon}</span>}
       {children}
+      {suffixIcon && <span className="flex-shrink-0">{suffixIcon}</span>}
     </button>
   );
 }
