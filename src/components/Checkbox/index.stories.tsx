@@ -19,6 +19,13 @@ export const Default: Story = {
   },
 };
 
+export const WithHelperText: Story = {
+  args: {
+    label: "Receber notificações por email",
+    helperText: "Você receberá atualizações sobre novos recursos e melhorias",
+  },
+};
+
 export const WithError: Story = {
   args: {
     label: "Aceito os termos e condições",
@@ -38,4 +45,36 @@ export const Disabled: Story = {
     label: "Aceito os termos e condições",
     disabled: true,
   },
+};
+
+export const Indeterminate: Story = {
+  args: {
+    label: "Selecionar todos os itens",
+    indeterminate: true,
+  },
+};
+
+export const LongLabel: Story = {
+  args: {
+    label:
+      "Aceito receber comunicações de marketing, incluindo emails promocionais, newsletters e ofertas especiais sobre produtos e serviços que possam ser do meu interesse",
+    helperText:
+      "Você pode cancelar a qualquer momento através do link no final dos emails",
+  },
+};
+
+export const MultipleCheckboxes: Story = {
+  render: () => (
+    <div className="space-y-4">
+      <Checkbox
+        label="Notificações por email"
+        helperText="Receba atualizações importantes por email"
+      />
+      <Checkbox
+        label="Notificações push"
+        helperText="Receba notificações no navegador"
+      />
+      <Checkbox label="Notificações SMS" helperText="Receba alertas por SMS" />
+    </div>
+  ),
 };
