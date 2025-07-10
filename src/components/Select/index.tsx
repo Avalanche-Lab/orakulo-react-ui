@@ -9,14 +9,16 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
   options: SelectOption[];
   error?: string;
-  icon?: React.ReactNode;
+  prefixIcon?: React.ReactNode;
+  placeholder?: string;
 }
 
 export function Select({
   label,
   options,
   error,
-  icon,
+  prefixIcon,
+  placeholder,
   className = "",
   ...props
 }: SelectProps) {
@@ -29,9 +31,9 @@ export function Select({
         {label}
       </label>
       <div className="relative">
-        {icon && (
+        {prefixIcon && (
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
-            {icon}
+            {prefixIcon}
           </div>
         )}
         <select
@@ -40,11 +42,16 @@ export function Select({
             w-full px-4 py-3 border border-border rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent 
             text-foreground transition-colors appearance-none bg-input
-            ${icon ? "pl-10" : ""}
+            ${prefixIcon ? "pl-10" : ""}
             ${error ? "border-destructive focus:ring-destructive" : ""}
             ${className}
           `.trim()}
         >
+          {placeholder && (
+            <option value="" disabled>
+              {placeholder}
+            </option>
+          )}
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
