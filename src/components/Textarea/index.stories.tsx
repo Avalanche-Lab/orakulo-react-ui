@@ -65,20 +65,20 @@ export const WithError: Story = {
   },
 };
 
-export const WithIcon: Story = {
+export const WithPrefixIcon: Story = {
   args: {
     label: "Mensagem",
     placeholder: "Digite sua mensagem...",
-    icon: <Icon path={mdiMessage} size={1} />,
+    prefixIcon: <Icon path={mdiMessage} size={1} />,
     id: "message",
   },
 };
 
-export const WithRightIcon: Story = {
+export const WithSuffixIcon: Story = {
   args: {
     label: "Perfil",
     placeholder: "Descreva seu perfil...",
-    rightIcon: <Icon path={mdiAccountEdit} size={1} />,
+    suffixIcon: <Icon path={mdiAccountEdit} size={1} />,
     id: "profile",
   },
 };
@@ -90,7 +90,7 @@ export const WithCharacterLimit: Story = {
     maxLength: 280,
     showCharacterCount: true,
     helperText: "Máximo de 280 caracteres",
-    icon: <Icon path={mdiMessage} size={1} />,
+    prefixIcon: <Icon path={mdiMessage} size={1} />,
     id: "tweet",
   },
 };
@@ -103,7 +103,7 @@ export const WithCharacterLimitAndError: Story = {
     showCharacterCount: true,
     value:
       "Este é um texto muito longo que excede o limite de caracteres permitidos para este campo. O componente deve mostrar um erro quando o limite for excedido.",
-    icon: <Icon path={mdiFileDocument} size={1} />,
+    prefixIcon: <Icon path={mdiFileDocument} size={1} />,
     id: "summary",
   },
 };
@@ -114,7 +114,7 @@ export const WithCharacterCountOnly: Story = {
     placeholder: "Suas notas aqui...",
     showCharacterCount: true,
     helperText: "Contador de caracteres sem limite",
-    icon: <Icon path={mdiNoteText} size={1} />,
+    prefixIcon: <Icon path={mdiNoteText} size={1} />,
     id: "notes",
   },
 };
@@ -134,7 +134,7 @@ export const Large: Story = {
     label: "História",
     placeholder: "Escreva uma história longa...",
     rows: 8,
-    icon: <Icon path={mdiBookOpen} size={1} />,
+    prefixIcon: <Icon path={mdiBookOpen} size={1} />,
     id: "story",
   },
 };
@@ -144,7 +144,7 @@ export const Small: Story = {
     label: "Nota Rápida",
     placeholder: "Uma nota curta...",
     rows: 2,
-    icon: <Icon path={mdiNoteText} size={1} />,
+    prefixIcon: <Icon path={mdiNoteText} size={1} />,
     id: "note",
   },
 };

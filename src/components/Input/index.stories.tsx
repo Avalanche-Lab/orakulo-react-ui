@@ -28,7 +28,7 @@ export const Text: Story = {
     label: "Nome",
     type: "text",
     placeholder: "Digite seu nome",
-    icon: <Icon path={mdiAccount} size={1} />,
+    prefixIcon: <Icon path={mdiAccount} size={1} />,
   },
 };
 
@@ -37,7 +37,7 @@ export const Email: Story = {
     label: "Email",
     type: "email",
     placeholder: "Digite seu email",
-    icon: <Icon path={mdiEmail} size={1} />,
+    prefixIcon: <Icon path={mdiEmail} size={1} />,
   },
 };
 
@@ -46,7 +46,7 @@ export const Password: Story = {
     label: "Senha",
     type: "password",
     placeholder: "Digite sua senha",
-    icon: <Icon path={mdiLock} size={1} />,
+    prefixIcon: <Icon path={mdiLock} size={1} />,
   },
 };
 
@@ -55,7 +55,7 @@ export const Phone: Story = {
     label: "Telefone",
     type: "tel",
     placeholder: "Digite seu telefone",
-    icon: <Icon path={mdiPhone} size={1} />,
+    prefixIcon: <Icon path={mdiPhone} size={1} />,
   },
 };
 
@@ -64,7 +64,7 @@ export const Location: Story = {
     label: "Endereço",
     type: "text",
     placeholder: "Digite seu endereço",
-    icon: <Icon path={mdiMapMarker} size={1} />,
+    prefixIcon: <Icon path={mdiMapMarker} size={1} />,
   },
 };
 
@@ -73,17 +73,17 @@ export const Search: Story = {
     label: "Buscar",
     type: "search",
     placeholder: "Digite para buscar...",
-    icon: <Icon path={mdiMagnify} size={1} />,
+    prefixIcon: <Icon path={mdiMagnify} size={1} />,
   },
 };
 
-export const WithRightIcon: Story = {
+export const WithSuffixIcon: Story = {
   args: {
     label: "Senha",
     type: "password",
     placeholder: "Digite sua senha",
-    icon: <Icon path={mdiLock} size={1} />,
-    rightIcon: <Icon path={mdiEye} size={1} />,
+    prefixIcon: <Icon path={mdiLock} size={1} />,
+    suffixIcon: <Icon path={mdiEye} size={1} />,
   },
 };
 
@@ -92,7 +92,7 @@ export const WithError: Story = {
     label: "Email",
     type: "email",
     placeholder: "Digite seu email",
-    icon: <Icon path={mdiEmail} size={1} />,
+    prefixIcon: <Icon path={mdiEmail} size={1} />,
     error: "Email inválido",
   },
 };

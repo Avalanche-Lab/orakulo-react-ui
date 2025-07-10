@@ -3,15 +3,15 @@ import React from "react";
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error?: string;
-  icon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
 }
 
 export function Input({
   label,
   error,
-  icon,
-  rightIcon,
+  prefixIcon,
+  suffixIcon,
   className = "",
   ...props
 }: InputProps) {
@@ -24,9 +24,9 @@ export function Input({
         {label}
       </label>
       <div className="relative">
-        {icon && (
+        {prefixIcon && (
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
-            {icon}
+            {prefixIcon}
           </div>
         )}
         <input
@@ -35,15 +35,15 @@ export function Input({
             w-full px-4 py-3 border border-border rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent 
             text-foreground placeholder-muted-foreground bg-input transition-colors
-            ${icon ? "pl-10" : ""}
-            ${rightIcon ? "pr-10" : ""}
+            ${prefixIcon ? "pl-10" : ""}
+            ${suffixIcon ? "pr-10" : ""}
             ${error ? "border-destructive focus:ring-destructive" : ""}
             ${className}
           `.trim()}
         />
-        {rightIcon && (
+        {suffixIcon && (
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground flex items-center justify-center">
-            {rightIcon}
+            {suffixIcon}
           </div>
         )}
       </div>
