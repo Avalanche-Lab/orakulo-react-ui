@@ -35,13 +35,6 @@ export const Solid: Story = {
   },
 };
 
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: "Button",
-  },
-};
-
 export const Secondary: Story = {
   args: {
     variant: "secondary",
@@ -67,7 +60,7 @@ export const WithSuffixIcon: Story = {
 
 export const IconOnly: Story = {
   args: {
-    variant: "outline",
+    variant: "secondary",
     children: "",
     prefixIcon: <Icon path={mdiPlus} size={1} />,
   },
@@ -83,7 +76,7 @@ export const SearchButton: Story = {
 
 export const DownloadButton: Story = {
   args: {
-    variant: "outline",
+    variant: "secondary",
     children: "Download",
     prefixIcon: <Icon path={mdiDownload} size={1} />,
   },
@@ -99,7 +92,7 @@ export const DeleteButton: Story = {
 
 export const LikeButton: Story = {
   args: {
-    variant: "outline",
+    variant: "secondary",
     children: "Curtir",
     prefixIcon: <Icon path={mdiHeart} size={1} />,
   },
@@ -123,7 +116,7 @@ export const ThumbUpButton: Story = {
 
 export const CloseButton: Story = {
   args: {
-    variant: "outline",
+    variant: "secondary",
     children: "Fechar",
     prefixIcon: <Icon path={mdiClose} size={1} />,
   },
