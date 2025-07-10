@@ -6,6 +6,7 @@ interface ToastContextType {
   addToast: (toast: Omit<ToastProps, "id">) => string;
   removeToast: (id: string) => void;
   clearToasts: () => void;
+  updateToast: (id: string, updates: Partial<ToastProps>) => void;
 }
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined);
@@ -59,6 +60,17 @@ export function ToastProvider({
     setToasts([]);
   }, []);
 
+  const updateToast = useCallback(
+    (id: string, updates: Partial<ToastProps>) => {
+      setToasts((prev) =>
+        prev.map((toast) =>
+          toast.id === id ? { ...toast, ...updates } : toast
+        )
+      );
+    },
+    []
+  );
+
   const getPositionStyles = () => {
     switch (position) {
       case "top-left":
@@ -79,7 +91,9 @@ export function ToastProvider({
   };
 
   return (
-    <ToastContext.Provider value={{ addToast, removeToast, clearToasts }}>
+    <ToastContext.Provider
+      value={{ addToast, removeToast, clearToasts, updateToast }}
+    >
       {children}
       <div className={`fixed z-50 space-y-2 p-4 ${getPositionStyles()}`}>
         {toasts.map((toast) => (

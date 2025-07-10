@@ -15,6 +15,7 @@ export interface ToastProps {
   };
   icon?: React.ReactNode;
   dismissible?: boolean;
+  progress?: number; // 0-100
 }
 
 export function Toast({
@@ -27,19 +28,30 @@ export function Toast({
   action,
   icon,
   dismissible = true,
+  progress,
 }: ToastProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    if (duration > 0) {
+    if (duration > 0 && progress === undefined) {
       const timer = setTimeout(() => {
         handleClose();
       }, duration);
 
       return () => clearTimeout(timer);
     }
-  }, [duration]);
+  }, [duration, progress]);
+
+  useEffect(() => {
+    if (progress === 100) {
+      const timer = setTimeout(() => {
+        handleClose();
+      }, 1000); // Aguarda 1 segundo após completar para o usuário ver
+
+      return () => clearTimeout(timer);
+    }
+  }, [progress]);
 
   const handleClose = () => {
     setIsExiting(true);
@@ -196,6 +208,16 @@ export function Toast({
           >
             {action.label}
           </button>
+        )}
+        {progress !== undefined && (
+          <div className="mt-3">
+            <div className="w-full bg-white/20 rounded-full h-1.5">
+              <div
+                className="bg-white h-1.5 rounded-full transition-all duration-300 ease-out"
+                style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
+              />
+            </div>
+          </div>
         )}
       </div>
 

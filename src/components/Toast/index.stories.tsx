@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Toast, ToastProvider, useToast } from ".";
 
 const meta: Meta<typeof Toast> = {
@@ -30,6 +31,7 @@ function ToastDemo({
   duration,
   action,
   icon,
+  progress,
 }: {
   variant?: "info" | "success" | "warning" | "error";
   title?: string;
@@ -37,6 +39,7 @@ function ToastDemo({
   duration?: number;
   action?: { label: string; onClick: () => void };
   icon?: React.ReactNode;
+  progress?: number;
 }) {
   const { addToast } = useToast();
 
@@ -48,6 +51,7 @@ function ToastDemo({
       duration: duration,
       action: action,
       icon: icon,
+      progress: progress,
     });
   };
 
@@ -168,6 +172,90 @@ export const ShortDuration: Story = {
 
 export const TitleOnly: Story = {
   render: () => <ToastDemo variant="info" title="Notificação simples" />,
+};
+
+export const WithProgress: Story = {
+  render: () => (
+    <ToastDemo
+      variant="info"
+      title="Upload em andamento"
+      description="Enviando arquivos..."
+      progress={65}
+    />
+  ),
+};
+
+// Story demonstrando progresso dinâmico
+function ProgressDemo() {
+  const { addToast, updateToast, removeToast } = useToast();
+  const [isRunning, setIsRunning] = React.useState(false);
+
+  const startProgress = () => {
+    if (isRunning) return;
+
+    setIsRunning(true);
+
+    // Criar apenas um toast inicial
+    const toastId = addToast({
+      title: "Processamento em andamento",
+      description: "Aguarde enquanto processamos seus dados...",
+      variant: "info",
+      progress: 0,
+      duration: 0, // Não fecha automaticamente
+    });
+
+    let currentProgress = 0;
+    const interval = setInterval(() => {
+      currentProgress += 2; // Mais suave: 2% a cada 100ms
+
+      if (currentProgress >= 100) {
+        clearInterval(interval);
+        setIsRunning(false);
+        // Remover o toast original
+        removeToast(toastId);
+        // Criar toast de sucesso quando terminar
+        addToast({
+          title: "Processamento concluído!",
+          description: "Todos os dados foram processados com sucesso.",
+          variant: "success",
+          duration: 3000,
+        });
+      } else {
+        // Atualizar o progresso no toast existente
+        updateToast(toastId, { progress: currentProgress });
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <button
+          onClick={startProgress}
+          disabled={isRunning}
+          className={`px-6 py-3 rounded-lg transition-colors ${
+            isRunning
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-primary text-primary-foreground hover:bg-primary/90"
+          }`}
+        >
+          {isRunning ? "Processando..." : "Iniciar Processamento"}
+        </button>
+      </div>
+
+      {isRunning && (
+        <div className="text-center text-sm text-gray-600">
+          Processamento em andamento...
+        </div>
+      )}
+    </div>
+  );
+}
+
+export const DynamicProgress: Story = {
+  render: () => <ProgressDemo />,
 };
 
 function AllToastsDemo() {
