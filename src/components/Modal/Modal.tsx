@@ -1,3 +1,10 @@
+import {
+  mdiAlertCircle,
+  mdiCheckCircle,
+  mdiCloseCircle,
+  mdiInformation,
+} from "@mdi/js";
+import Icon from "@mdi/react";
 import React, { useEffect, useRef } from "react";
 
 export type ModalVariant = "info" | "success" | "warning" | "error";
@@ -99,69 +106,13 @@ export function Modal({
   const getDefaultIcon = () => {
     switch (variant) {
       case "success":
-        return (
-          <svg
-            className="w-12 h-12"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        );
+        return <Icon path={mdiCheckCircle} size={3} />;
       case "warning":
-        return (
-          <svg
-            className="w-12 h-12"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-            />
-          </svg>
-        );
+        return <Icon path={mdiAlertCircle} size={3} />;
       case "error":
-        return (
-          <svg
-            className="w-12 h-12"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        );
+        return <Icon path={mdiCloseCircle} size={3} />;
       default:
-        return (
-          <svg
-            className="w-12 h-12"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        );
+        return <Icon path={mdiInformation} size={3} />;
     }
   };
 
@@ -228,7 +179,7 @@ export function Modal({
                 <button
                   key={index}
                   onClick={action.onClick}
-                  className={`px-4 py-2 rounded-md transition-colors ${getActionStyles(
+                  className={`px-4 py-2 rounded-md transition-colors min-w-[80px] ${getActionStyles(
                     action.variant
                   )}`}
                 >
