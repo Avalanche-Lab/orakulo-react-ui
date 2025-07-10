@@ -43,7 +43,7 @@ function ToastDemo({
   const showToast = () => {
     addToast({
       title: title || "Notificação",
-      description: description || "Esta é uma notificação de exemplo.",
+      description: description,
       variant: variant || "info",
       duration: duration,
       action: action,
@@ -164,6 +164,10 @@ export const ShortDuration: Story = {
       duration={2000}
     />
   ),
+};
+
+export const TitleOnly: Story = {
+  render: () => <ToastDemo variant="info" title="Notificação simples" />,
 };
 
 function AllToastsDemo() {
