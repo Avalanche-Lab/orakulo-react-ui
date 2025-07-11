@@ -28,7 +28,7 @@ export function Input({
       <div className="relative">
         {prefixIcon && (
           <div className={`absolute left-3 top-1/2 transform -translate-y-1/2 transition-colors ${
-            isFocused ? "text-ring" : "text-muted-foreground"
+            error ? "text-destructive" : isFocused ? "text-ring" : "text-muted-foreground"
           }`}>
             {prefixIcon}
           </div>
@@ -55,7 +55,7 @@ export function Input({
         />
         {suffixIcon && (
           <div className={`absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center justify-center transition-colors ${
-            isFocused ? "text-ring" : "text-muted-foreground"
+            error ? "text-destructive" : isFocused ? "text-ring" : "text-muted-foreground"
           }`}>
             {suffixIcon}
           </div>
