@@ -37,12 +37,13 @@ function App() {
 ### 1. Importar os estilos (Obrigatório)
 
 ```jsx
+// Importar os estilos da biblioteca
 import "orakulo-react-ui/styles";
 ```
 
 ### 2. Personalizar cores
 
-Crie um arquivo CSS no seu projeto e sobrescreva as variáveis:
+Para personalizar as cores, você pode sobrescrever as variáveis CSS. Crie um arquivo CSS no seu projeto:
 
 ```css
 /* meu-tema.css */
@@ -72,6 +73,13 @@ Crie um arquivo CSS no seu projeto e sobrescreva as variáveis:
   --input: #2a2a2a;
   --border: #404040;
 }
+```
+
+E importe após os estilos da biblioteca:
+
+```jsx
+import "orakulo-react-ui/styles";
+import "./meu-tema.css";
 ```
 
 ### 3. Aplicar tema escuro

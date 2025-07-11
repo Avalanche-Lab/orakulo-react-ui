@@ -1,6 +1,8 @@
 // Exporta todos os componentes
 export * from "./components";
 
-// Exporta os estilos (para uso opcional)
-export { default as styles } from "./styles/index.css";
-export { default as theme } from "./styles/theme.css";
+// Para usar os estilos da biblioteca, importe diretamente:
+// import "orakulo-react-ui/dist/styles/index.css";
+//
+// Ou copie os arquivos CSS do diretório src/styles para o seu projeto
+// e importe localmente para personalização.
