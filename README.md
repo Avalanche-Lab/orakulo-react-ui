@@ -1,14 +1,14 @@
 # Orakulo React UI
 
-Uma biblioteca de componentes React com suporte a temas claro e escuro.
+A React component library with light and dark theme support.
 
-## Instalação
+## Installation
 
 ```bash
 npm install orakulo-react-ui
 ```
 
-## Uso Básico
+## Basic Usage
 
 ```jsx
 import { Button, Input, Select, Checkbox, Textarea } from "orakulo-react-ui";
@@ -16,56 +16,56 @@ import { Button, Input, Select, Checkbox, Textarea } from "orakulo-react-ui";
 function App() {
   return (
     <div>
-      <Button variant="default">Clique aqui</Button>
-      <Input label="Nome" placeholder="Digite seu nome" />
+      <Button variant="default">Click here</Button>
+      <Input label="Name" placeholder="Enter your name" />
       <Select
-        label="País"
+        label="Country"
         options={[
-          { value: "br", label: "Brasil" },
-          { value: "us", label: "Estados Unidos" },
+          { value: "br", label: "Brazil" },
+          { value: "us", label: "United States" },
         ]}
       />
-      <Checkbox label="Aceito os termos" />
-      <Textarea label="Descrição" placeholder="Digite sua descrição..." />
+      <Checkbox label="I accept the terms" />
+      <Textarea label="Description" placeholder="Enter your description..." />
     </div>
   );
 }
 ```
 
-## Personalização de Temas
+## Theme Customization
 
-### 1. Importar os estilos (Obrigatório)
+### 1. Import styles (Required)
 
 ```jsx
-// Importar os estilos da biblioteca
+// Import library styles
 import "orakulo-react-ui/styles";
 ```
 
-### 2. Personalizar cores
+### 2. Customize colors
 
-Para personalizar as cores, você pode sobrescrever as variáveis CSS. Crie um arquivo CSS no seu projeto:
+To customize colors, you can override CSS variables. Create a CSS file in your project:
 
 ```css
-/* meu-tema.css */
+/* my-theme.css */
 :root {
-  /* Cores primárias */
-  --primary: #ff0000; /* Vermelho */
+  /* Primary colors */
+  --primary: #ff0000; /* Red */
   --primary-foreground: #ffffff;
 
-  /* Cores de fundo */
+  /* Background colors */
   --background: #f8f9fa;
   --card: #ffffff;
 
-  /* Cores de texto */
+  /* Text colors */
   --foreground: #333333;
   --card-foreground: #333333;
 
-  /* Cores de input */
+  /* Input colors */
   --input: #ffffff;
   --border: #e2e8f0;
 }
 
-/* Tema escuro */
+/* Dark theme */
 .dark {
   --primary: #ff6666;
   --background: #1a1a1a;
@@ -75,16 +75,16 @@ Para personalizar as cores, você pode sobrescrever as variáveis CSS. Crie um a
 }
 ```
 
-E importe após os estilos da biblioteca:
+And import it after the library styles:
 
 ```jsx
 import "orakulo-react-ui/styles";
-import "./meu-tema.css";
+import "./my-theme.css";
 ```
 
-### 3. Aplicar tema escuro
+### 3. Apply dark theme
 
-Para ativar o tema escuro, adicione a classe `dark` ao elemento raiz:
+To activate dark theme, add the `dark` class to the root element:
 
 ```jsx
 // JavaScript
@@ -96,49 +96,49 @@ useEffect(() => {
 }, []);
 ```
 
-## Variáveis CSS Disponíveis
+## Available CSS Variables
 
-### Cores de Fundo
+### Background Colors
 
-- `--background`: Fundo principal
-- `--card`: Fundo de cards
+- `--background`: Main background
+- `--card`: Card background
 
-### Cores de Texto
+### Text Colors
 
-- `--foreground`: Texto principal
-- `--card-foreground`: Texto em cards
-- `--muted-foreground`: Texto secundário
+- `--foreground`: Main text
+- `--card-foreground`: Text in cards
+- `--muted-foreground`: Secondary text
 
-### Cores Primárias
+### Primary Colors
 
-- `--primary`: Cor primária
-- `--primary-foreground`: Texto sobre cor primária
+- `--primary`: Primary color
+- `--primary-foreground`: Text on primary color
 
-### Cores Secundárias
+### Secondary Colors
 
-- `--secondary`: Cor secundária
-- `--secondary-foreground`: Texto sobre cor secundária
-- `--muted`: Cor de destaque
-- `--muted-foreground`: Texto sobre cor de destaque
+- `--secondary`: Secondary color
+- `--secondary-foreground`: Text on secondary color
+- `--muted`: Accent color
+- `--muted-foreground`: Text on accent color
 
-### Cores de Erro
+### Error Colors
 
-- `--destructive`: Cor de erro
-- `--destructive-foreground`: Texto sobre cor de erro
+- `--destructive`: Error color
+- `--destructive-foreground`: Text on error color
 
-### Cores de Interface
+### Interface Colors
 
-- `--border`: Cor das bordas
-- `--input`: Fundo dos inputs
-- `--ring`: Cor do ring de foco
+- `--border`: Border color
+- `--input`: Input background
+- `--ring`: Focus ring color
 
-## Componentes Disponíveis
+## Available Components
 
 ### Button
 
 ```jsx
 <Button variant="default" size="md">
-  Texto
+  Text
 </Button>
 ```
 
@@ -150,46 +150,46 @@ useEffect(() => {
 ### Input
 
 ```jsx
-<Input label="Nome" placeholder="Digite seu nome" />
+<Input label="Name" placeholder="Enter your name" />
 ```
 
 **Props:**
 
-- `label`: string (obrigatório)
-- `error`: string (opcional)
-- `icon`: ReactNode (opcional)
-- `rightIcon`: ReactNode (opcional)
+- `label`: string (required)
+- `error`: string (optional)
+- `prefixIcon`: ReactNode (optional)
+- `suffixIcon`: ReactNode (optional)
 
 ### Select
 
 ```jsx
-<Select label="País" options={[{ value: "br", label: "Brasil" }]} />
+<Select label="Country" options={[{ value: "br", label: "Brazil" }]} />
 ```
 
 **Props:**
 
-- `label`: string (obrigatório)
-- `options`: Array<{value: string, label: string}> (obrigatório)
-- `error`: string (opcional)
-- `icon`: ReactNode (opcional)
+- `label`: string (required)
+- `options`: Array<{value: string, label: string}> (required)
+- `error`: string (optional)
+- `prefixIcon`: ReactNode (optional)
 
 ### Checkbox
 
 ```jsx
-<Checkbox label="Aceito os termos" />
+<Checkbox label="I accept the terms" />
 ```
 
 **Props:**
 
-- `label`: string (obrigatório)
-- `error`: string (opcional)
+- `label`: string (required)
+- `error`: string (optional)
 
 ### Textarea
 
 ```jsx
 <Textarea
-  label="Descrição"
-  placeholder="Digite sua descrição..."
+  label="Description"
+  placeholder="Enter your description..."
   rows={4}
   maxLength={500}
   showCharacterCount={true}
@@ -198,24 +198,24 @@ useEffect(() => {
 
 **Props:**
 
-- `label`: string (obrigatório)
-- `error`: string (opcional)
-- `helperText`: string (opcional)
-- `icon`: ReactNode (opcional)
-- `rightIcon`: ReactNode (opcional)
-- `rows`: number (padrão: 4)
-- `maxLength`: number (opcional) - Limite máximo de caracteres
-- `showCharacterCount`: boolean (opcional) - Mostra contador de caracteres
+- `label`: string (required)
+- `error`: string (optional)
+- `helperText`: string (optional)
+- `prefixIcon`: ReactNode (optional)
+- `suffixIcon`: ReactNode (optional)
+- `rows`: number (default: 4)
+- `maxLength`: number (optional) - Maximum character limit
+- `showCharacterCount`: boolean (optional) - Show character counter
 
-## Desenvolvimento
+## Development
 
 ```bash
-# Instalar dependências
+# Install dependencies
 npm install
 
-# Executar Storybook
+# Run Storybook
 npm run storybook
 
-# Build da lib
+# Build library
 npm run build
 ```
