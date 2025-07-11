@@ -45,7 +45,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run copy-styles",
+    "build": "tsc -p tsconfig.build.json && vite build && npm run copy-styles",
     "copy-styles": "cp -r src/styles dist/",
     "lint": "eslint .",
     "preview": "vite preview",
