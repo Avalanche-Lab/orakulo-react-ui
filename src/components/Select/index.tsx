@@ -1,4 +1,6 @@
 import React from "react";
+import Icon from "@mdi/react";
+import { mdiChevronDown } from "@mdi/js";
 
 interface SelectOption {
   value: string;
@@ -64,19 +66,7 @@ export function Select({
           ))}
         </select>
         <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-          <svg
-            className="w-4 h-4 text-muted-foreground"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          <Icon path={mdiChevronDown} size={1} className="text-muted-foreground" />
         </div>
       </div>
       {error && <p className="mt-1 text-sm text-destructive">{error}</p>}
