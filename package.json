@@ -1,10 +1,29 @@
 {
   "name": "orakulo-react-ui",
   "version": "1.0.0",
+  "description": "A modern React component library with light and dark theme support",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Avalanche-Lab/orakulo-react-ui"
+  },
+  "homepage": "https://github.com/Avalanche-Lab/orakulo-react-ui/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/Avalanche-Lab/orakulo-react-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "typescript",
+    "tailwindcss",
+    "orakulo"
+  ],
+  "author": "Seu Nome <seu-email@exemplo.com>",
   "exports": {
     ".": {
       "import": "./dist/index.js",
