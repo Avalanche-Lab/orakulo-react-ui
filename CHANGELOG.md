@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2024-12-19
+## [1.0.2] - 2025-07-11
+
+### Fixed
+- Added TypeScript declaration files (`.d.ts`) to the package to fix the warning:
+  > Could not find a declaration file for module 'orakulo-react-ui'.
+
+## [1.0.1] - 2025-07-11
+
+### Added
+- Added MIT license file and license metadata to the package.
+
+## [1.0.0] - 2025-07-11
 
 ### Added
 

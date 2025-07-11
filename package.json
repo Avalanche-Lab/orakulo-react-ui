@@ -1,6 +1,6 @@
 {
   "name": "orakulo-react-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A modern React component library with light and dark theme support",
   "type": "module",
   "main": "./dist/index.js",
@@ -45,7 +45,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run copy-styles",
+    "build": "tsc -p tsconfig.build.json && vite build && npm run copy-styles",
     "copy-styles": "cp -r src/styles dist/",
     "lint": "eslint .",
     "preview": "vite preview",
