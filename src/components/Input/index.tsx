@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -15,6 +15,8 @@ export function Input({
   className = "",
   ...props
 }: InputProps) {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <div>
       <label
@@ -25,12 +27,22 @@ export function Input({
       </label>
       <div className="relative">
         {prefixIcon && (
-          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+          <div className={`absolute left-3 top-1/2 transform -translate-y-1/2 transition-colors ${
+            error ? "text-destructive" : isFocused ? "text-ring" : "text-muted-foreground"
+          }`}>
             {prefixIcon}
           </div>
         )}
         <input
           {...props}
+          onFocus={(e) => {
+            setIsFocused(true);
+            props.onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setIsFocused(false);
+            props.onBlur?.(e);
+          }}
           className={`
             w-full px-4 py-3 border border-border rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent 
@@ -42,7 +54,9 @@ export function Input({
           `.trim()}
         />
         {suffixIcon && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground flex items-center justify-center">
+          <div className={`absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center justify-center transition-colors ${
+            error ? "text-destructive" : isFocused ? "text-ring" : "text-muted-foreground"
+          }`}>
             {suffixIcon}
           </div>
         )}
